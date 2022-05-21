@@ -24,12 +24,12 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is an API in [Nest](https://github.com/nestjs/nest) framework based on the self code challenge described in this [link](https://github.com/LCYAD/self-code-challenge)
 
 ## Installation
 
 ```bash
-$ yarn install
+$ yarn
 ```
 
 ## Running the app
