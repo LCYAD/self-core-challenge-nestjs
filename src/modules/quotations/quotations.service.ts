@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common'
-import { QUOTATION } from '../../constants/fakers/quotation'
+import { QuotationIdParamDto } from '../../dtos/quotation/id.param.dto'
 
 @Injectable()
 export class QuotationHandlerService {
-  getQuotationById() {
-    return QUOTATION
+  getQuotationById({ id }: QuotationIdParamDto) {
+    return {
+      quotationId: id
+    }
   }
 }

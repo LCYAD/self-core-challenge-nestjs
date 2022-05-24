@@ -7,5 +7,6 @@ export const enum COMMON_FIELD {
   DROP_OFF_ADDRESS = 'InnoCentre, 72 Tat Chee Avenue',
   LOCATION = 'Hong Kong',
   NUMBER_FIELD = 1,
-  STRING_FIELD = 'test'
+  STRING_FIELD = 'test',
+  QUOTATION_ID_FIELD = '182379172831'
 }
