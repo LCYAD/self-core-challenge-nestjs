@@ -1,4 +1,5 @@
 import { ValidationPipe } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
 import {
   FastifyAdapter,
@@ -24,7 +25,8 @@ async function bootstrap() {
       }
     })
   )
-  if (process.env.APP_ENV !== 'production') {
+  const configService = app.get(ConfigService)
+  if (configService.get<string>('appEnv') !== 'production') {
     const options = new DocumentBuilder()
       .setTitle('NestJS Self Challenge API API')
       .setDescription('An API to get quotation information')
@@ -35,6 +37,6 @@ async function bootstrap() {
     SwaggerModule.setup('api', app, document)
   }
 
-  await app.listen(3000)
+  await app.listen(configService.get<string>('port'))
 }
 bootstrap()
