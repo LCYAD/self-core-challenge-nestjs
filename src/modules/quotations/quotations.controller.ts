@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Param } from '@nestjs/common'
+import { QuotationIdParamDto } from '../../dtos/quotation/id.param.dto'
 import { QuotationHandlerService } from './quotations.service'
 
 @Controller('quotations')
@@ -8,7 +9,8 @@ export class QuotationsController {
   ) {}
 
   @Get(':id')
-  getQuotation() {
-    return this.quotationHandlerService.getQuotationById()
+  getQuotation(@Param() param: QuotationIdParamDto) {
+    console.log(param)
+    return this.quotationHandlerService.getQuotationById(param)
   }
 }

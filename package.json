@@ -25,7 +25,10 @@
     "@nestjs/core": "^8.4.5",
     "@nestjs/platform-fastify": "^8.4.5",
     "@nestjs/swagger": "^5.2.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "fastify-swagger": "^5.2.0",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
