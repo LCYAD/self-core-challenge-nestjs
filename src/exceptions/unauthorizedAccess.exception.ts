@@ -4,12 +4,10 @@ export class UnauthorizedAccessException extends HttpException {
   constructor(location = 'unknown', err = null) {
     super(
       {
-        title: 'Unauthorized access!',
-        type: 'UnauthorizedAccessError',
-        errorCode: '10200',
-        message: 'authorization token was not valid',
-        location,
-        err
+        type: 'UNAUTHORIZED',
+        code: '10200',
+        detail: err ?? 'authorization token was not valid',
+        location
       },
       HttpStatus.UNAUTHORIZED
     )
