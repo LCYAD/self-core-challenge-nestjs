@@ -1,8 +1,8 @@
 export const enum COMMON_FIELD {
   CURRENT_TIME = '2022-05-21T00:00:00.000Z',
   AFTER_1HR_CURRENT_TIME = '2022-05-21T01:00:00.000Z',
-  LAT = '22.3353139',
-  LNG = '114.1758402',
+  LAT = '22.335313',
+  LNG = '114.175840',
   PICKUP_ADDRESS = '999 Prince Edward Road',
   DROP_OFF_ADDRESS = 'InnoCentre, 72 Tat Chee Avenue',
   LOCATION = 'Hong Kong',
