@@ -38,12 +38,18 @@ $ yarn
 # development
 $ yarn start
 
-# watch mode
+# watch mode (similar to nodemon)
 $ yarn start:dev
 
 # production mode
 $ yarn start:prod
 ```
+
+## Debug
+
+### VScode
+
+- use `autoattach` (and restart terminal) and just run one of the command above
 
 ## Test
 

@@ -4,12 +4,10 @@ export class ValidationException extends HttpException {
   constructor(location = 'unknown', err = null) {
     super(
       {
-        title: 'Validation Failed!',
-        type: 'ValidationError',
-        errorCode: '10100',
-        message: 'The data was invalid',
-        location,
-        err
+        type: 'VALIDATION_ERROR',
+        code: '10100',
+        detail: err ?? 'The data was invalid',
+        location
       },
       HttpStatus.UNPROCESSABLE_ENTITY
     )

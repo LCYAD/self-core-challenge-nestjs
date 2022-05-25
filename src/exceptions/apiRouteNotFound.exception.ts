@@ -4,12 +4,10 @@ export class APIRouteNotFoundException extends HttpException {
   constructor(location = 'unknown', err = null) {
     super(
       {
-        title: 'Invalid API Call!',
-        type: 'APIRouteNotFoundError',
-        errorCode: '10401',
-        message: 'Request API route does not exist',
-        location,
-        err
+        type: 'API_ROUTE_NOT_FOUND',
+        code: '10401',
+        detail: err ?? 'Request API route does not exist',
+        location
       },
       HttpStatus.NOT_FOUND
     )

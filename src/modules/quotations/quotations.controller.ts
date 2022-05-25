@@ -10,7 +10,6 @@ export class QuotationsController {
 
   @Get(':id')
   getQuotation(@Param() param: QuotationIdParamDto) {
-    console.log(param)
     return this.quotationHandlerService.getQuotationById(param)
   }
 }
