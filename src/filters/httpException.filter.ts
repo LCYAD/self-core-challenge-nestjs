@@ -8,7 +8,6 @@ import {
   UnauthorizedException
 } from '@nestjs/common'
 import type { FastifyReply } from 'fastify'
-import { get, omit } from 'lodash'
 import { UnauthorizedAccessException } from '../exceptions/unauthorizedAccess.exception'
 import { APIRouteNotFoundException } from '../exceptions/apiRouteNotFound.exception'
 import { UnknownServerErrorException } from 'src/exceptions/unknownServiceError.exception'
