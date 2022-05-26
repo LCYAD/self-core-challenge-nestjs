@@ -66,6 +66,8 @@ $ yarn start:prod
 
 ## Test
 
+- it should be noted that `swc/jest` could not be used at the moment due to parsing issue with Typescript files
+
 ```bash
 # unit tests
 $ yarn test
