@@ -6,11 +6,12 @@ import {
   NestFastifyApplication
 } from '@nestjs/platform-fastify'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+
 import { AppModule } from './app.module'
 import { HttpExceptionFilter } from './filters/httpException.filter'
 import { validationExceptionFactory } from './utils/validation.util'
 
-async function bootstrap() {
+const bootstrap = async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter()
@@ -37,4 +38,4 @@ async function bootstrap() {
 
   await app.listen(configService.get<string>('port'))
 }
-bootstrap()
+void bootstrap()

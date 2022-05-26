@@ -1,11 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger'
+
 import { Type } from 'class-transformer'
 import { IsOptional, IsString, Matches, ValidateNested } from 'class-validator'
-import { COMMON_FIELD } from '../../constants/fakers/common.faker.constant'
+
+import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
 import {
   LAT__REGEX,
   LNG__REGEX
-} from '../../constants/regexes/common.regex.constant'
+} from '@constants/regexes/common.regex.constant'
 
 export const quotationStopCoordinatesValidExample = {
   lat: COMMON_FIELD.LAT,

@@ -14,7 +14,6 @@ module.exports = {
   ],
   extends: [
     'prettier',
-    'prettier/@typescript-eslint',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -28,13 +27,6 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: false
-      }
-    ],
     '@typescript-eslint/await-thenable': 'warn',
     '@typescript-eslint/array-type': [
       'error',
@@ -117,6 +109,7 @@ module.exports = {
     // to be reviewed
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
@@ -193,15 +186,14 @@ module.exports = {
         markers: ['/']
       }
     ],
-    'simple-import-sort/sort': [
+    'simple-import-sort/imports': [
       'error',
       {
         groups: [
           ['^@nestjs.*'],
-          ['^@hk01-digital.*'],
           ['^[^.^@].*'],
           [
-            '^@(constants|decorators|dtos|filters|guards|interceptors|middlewares|models|modules|pipes|utils|tests).*'
+            '^@(config|constants|decorators|dtos|exceptions|filters|guards|interceptors|middlewares|models|modules|pipes|utils|tests).*'
           ],
           ['^[.].*']
         ]
