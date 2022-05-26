@@ -9,7 +9,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 import { AppModule } from './app.module'
 import { HttpExceptionFilter } from './filters/httpException.filter'
-import { validationExceptionFactory } from './utils/validation.util'
+import { getValidationExceptionFactory } from './utils/validation.util'
 
 const bootstrap = async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -24,7 +24,9 @@ const bootstrap = async () => {
       transformOptions: {
         excludeExtraneousValues: true
       },
-      exceptionFactory: validationExceptionFactory
+      exceptionFactory: getValidationExceptionFactory({
+        location: 'Generic Validation Pipe'
+      })
     })
   )
   const configService = app.get(ConfigService)

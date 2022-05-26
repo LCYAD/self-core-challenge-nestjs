@@ -1,18 +1,11 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpStatus,
-  Param,
-  ParseArrayPipe,
-  Post
-} from '@nestjs/common'
+import { Body, Controller, Get, HttpStatus, Param, Post } from '@nestjs/common'
 import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger'
 
 import { QuotationBaseDto } from '@dtos/quotation/base.dto'
 import { QuotationIdParamDto } from '@dtos/quotation/id.param.dto'
+import { ArrayValidationPipe } from '@pipes/arrayValidation.pipe'
 import { parseDescription } from '@utils/swagger.util'
-import { validationExceptionFactory } from '@utils/validation.util'
+import { getValidationExceptionFactory } from '@utils/validation.util'
 
 import { QuotationsPostReqDto } from './dtos/quotationsPostReq.dto'
 import { QuotationHandlerService } from './quotations.handler.service'
@@ -56,13 +49,13 @@ export class QuotationsController {
   })
   postQuotations(
     @Body(
-      new ParseArrayPipe({
-        items: QuotationsPostReqDto,
-        exceptionFactory: validationExceptionFactory,
-        transformOptions: {
-          excludeExtraneousValues: true
-        }
-      })
+      new ArrayValidationPipe(
+        QuotationsPostReqDto,
+        getValidationExceptionFactory({
+          isArray: true,
+          location: 'Validation Pipe - postQuotations'
+        })
+      )
     )
     body: QuotationsPostReqDto[]
   ) {
