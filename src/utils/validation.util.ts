@@ -61,11 +61,11 @@ const getErrorMsg = (err, arrResponse = false): ValidationError[] => {
   return transformErrorMsg(errorMsg as ValidationError[])
 }
 
-export const validationExceptionFactory = (
-  errors: string | ValidationError[]
-) => {
-  throw new ValidationException(
-    'Validation Pipe',
-    isString(errors) ? errors : getErrorMsg(errors)
-  )
-}
+export const getValidationExceptionFactory =
+  ({ isArray = false, location }: { isArray?: boolean; location: string }) =>
+  (errors: string | ValidationError[]) => {
+    throw new ValidationException(
+      location,
+      isString(errors) ? errors : getErrorMsg(errors, isArray)
+    )
+  }
