@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { QuotationsController } from './quotations.controller'
-import { QuotationHandlerService } from './quotations.service'
+import { QuotationHandlerService } from './quotations.handler.service'
 
 @Module({
   imports: [],

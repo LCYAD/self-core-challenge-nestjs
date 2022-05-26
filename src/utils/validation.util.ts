@@ -1,5 +1,6 @@
-import { ValidationError } from 'class-validator'
-import { compact, flatten, forEach, get, isEmpty, map } from 'lodash'
+import type { ValidationError } from 'class-validator'
+import { compact, flatten, forEach, get, isEmpty, map, isString } from 'lodash'
+import { ValidationException } from '../exceptions/validation.exception'
 
 const generateErrorMsg = (errors: ValidationError, initial = ''): any[] => {
   return map(errors, (error) => {
@@ -18,7 +19,7 @@ const generateErrorMsg = (errors: ValidationError, initial = ''): any[] => {
   })
 }
 
-const transformErrorMsg = (errMsg: any[]) => {
+const transformErrorMsg = (errMsg: ValidationError[]) => {
   const result = []
   const handleChildren = (children, currentPath = '') => {
     forEach(children, (child) => {
@@ -39,7 +40,7 @@ const transformErrorMsg = (errMsg: any[]) => {
   return result
 }
 
-export const getErrorMsg = (err, arrResponse = false): any[] => {
+const getErrorMsg = (err, arrResponse = false): ValidationError[] => {
   let errorMsg
   if (arrResponse) {
     errorMsg = flatten(
@@ -57,4 +58,13 @@ export const getErrorMsg = (err, arrResponse = false): any[] => {
   }
 
   return transformErrorMsg(errorMsg)
+}
+
+export const validationExceptionFactory = (
+  errors: string | ValidationError[]
+) => {
+  throw new ValidationException(
+    'Validation Pipe',
+    isString(errors) ? errors : getErrorMsg(errors)
+  )
 }

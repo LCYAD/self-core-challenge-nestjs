@@ -28,8 +28,21 @@ This is an API in [Nest](https://github.com/nestjs/nest) framework based on the 
 
 ## Installation
 
+- Make sure you have `yarn` and `docker-compose` installed
+- To download dependencies, use
+
 ```bash
 $ yarn
+```
+
+## Background Services
+
+```bash
+# load all background services (redis etc.)
+yarn ldev:services:up
+
+# remove all background services (redis etc.)
+yarn ldev:services:down
 ```
 
 ## Running the app
