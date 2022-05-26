@@ -1,7 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger'
+
 import { IsString, Matches } from 'class-validator'
-import { QUOTATION_ID_REGEX } from '../../constants/regexes/quotation.regex.constant'
-import { COMMON_FIELD } from '../../constants/fakers/common.faker.constant'
+
+import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
+import { QUOTATION_ID_REGEX } from '@constants/regexes/quotation.regex.constant'
 
 export const quotationIdParamValidExample = {
   id: COMMON_FIELD.QUOTATION_ID_FIELD

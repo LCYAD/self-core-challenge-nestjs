@@ -7,10 +7,12 @@ import {
   NotFoundException,
   UnauthorizedException
 } from '@nestjs/common'
+
 import type { FastifyReply } from 'fastify'
-import { UnauthorizedAccessException } from '../exceptions/unauthorizedAccess.exception'
-import { APIRouteNotFoundException } from '../exceptions/apiRouteNotFound.exception'
-import { UnknownServerErrorException } from 'src/exceptions/unknownServiceError.exception'
+
+import { APIRouteNotFoundException } from '@exceptions/apiRouteNotFound.exception'
+import { UnauthorizedAccessException } from '@exceptions/unauthorizedAccess.exception'
+import { UnknownServerErrorException } from '@exceptions/unknownServiceError.exception'
 
 type ExceptionResponse = {
   type: string
@@ -38,7 +40,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     ) {
       exception = new UnknownServerErrorException('see stack')
     }
-    const status = exception.getStatus()
+    const status: number = exception.getStatus()
     const exceptionResponse = exception.getResponse() as ExceptionResponse
     const { location, ...errContent }: ExceptionResponse = exceptionResponse
 
@@ -51,6 +53,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
       stackTrace: status === 500 ? exception.stack : null
     })
 
-    response.status(status).send(errContent)
+    void response.status(status).send(errContent)
   }
 }

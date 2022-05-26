@@ -9,7 +9,7 @@
     "ldev:services:up": "docker-compose -f docker-compose-ldev.yml up -d",
     "ldev:services:down": "docker-compose -f docker-compose-ldev.yml down",
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "nest build && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -50,6 +50,8 @@
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.2",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
@@ -62,6 +64,7 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "4.0.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^4.3.5"
   },
   "jest": {

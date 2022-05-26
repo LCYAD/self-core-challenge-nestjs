@@ -1,9 +1,13 @@
 import { Injectable } from '@nestjs/common'
+
 import _ from 'lodash'
 import { customAlphabet } from 'nanoid'
-import { redis } from '../../utils/redis.util'
-import { QuotationIdParamDto } from '../../dtos/quotation/id.param.dto'
-import { ResourcesNotFoundException } from '../../exceptions/resourcesNotFound.exception'
+
+import type { QuotationBaseDto } from '@dtos/quotation/base.dto'
+import { QuotationIdParamDto } from '@dtos/quotation/id.param.dto'
+import { ResourcesNotFoundException } from '@exceptions/resourcesNotFound.exception'
+import { redis } from '@utils/redis.util'
+
 import type { QuotationsPostReqDto } from './dtos/quotationsPostReq.dto'
 
 @Injectable()
@@ -30,7 +34,7 @@ export class QuotationHandlerService {
       expireAt
     }))
     await Promise.all(
-      _.map(quotations, (quotation) =>
+      _.map(quotations, (quotation: QuotationBaseDto) =>
         redis.set(quotation.quotationId, JSON.stringify(quotation))
       )
     )

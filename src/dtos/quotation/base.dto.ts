@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
+
 import { Type } from 'class-transformer'
 import {
   ArrayMaxSize,
@@ -12,8 +13,10 @@ import {
   Matches,
   ValidateNested
 } from 'class-validator'
-import { COMMON_FIELD } from '../../constants/fakers/common.faker.constant'
-import { QUOTATION_ID_REGEX } from '../../constants/regexes/quotation.regex.constant'
+
+import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
+import { QUOTATION_ID_REGEX } from '@constants/regexes/quotation.regex.constant'
+
 import { QuotationStopDto, quotationStopValidExample } from './stop.dto'
 
 export const quotationBaseItemValidExample = {

@@ -1,13 +1,14 @@
 import type { ValidationError } from 'class-validator'
-import { compact, flatten, forEach, get, isEmpty, map, isString } from 'lodash'
-import { ValidationException } from '../exceptions/validation.exception'
+import { compact, flatten, forEach, get, isEmpty, isString, map } from 'lodash'
+
+import { ValidationException } from '@exceptions/validation.exception'
 
 const generateErrorMsg = (errors: ValidationError, initial = ''): any[] => {
   return map(errors, (error) => {
     if (!error.contraints && !isEmpty(get(error, 'children', []))) {
       return {
         path: `${initial}${get(error, 'property')}`,
-        children: generateErrorMsg(error.children)
+        children: generateErrorMsg(error.children as ValidationError)
       }
     }
     const constraints = get(error, 'constraints', null)
@@ -32,7 +33,7 @@ const transformErrorMsg = (errMsg: ValidationError[]) => {
           value: child.value
         })
       } else {
-        handleChildren(child.children, newPath)
+        handleChildren(child.children, newPath as string)
       }
     })
   }
@@ -49,15 +50,15 @@ const getErrorMsg = (err, arrResponse = false): ValidationError[] => {
           if (isEmpty(e)) {
             return null
           }
-          return generateErrorMsg(e, `${index}.`)
+          return generateErrorMsg(e as ValidationError, `${index}.`)
         })
       )
     )
   } else {
-    errorMsg = generateErrorMsg(err)
+    errorMsg = generateErrorMsg(err as ValidationError)
   }
 
-  return transformErrorMsg(errorMsg)
+  return transformErrorMsg(errorMsg as ValidationError[])
 }
 
 export const validationExceptionFactory = (

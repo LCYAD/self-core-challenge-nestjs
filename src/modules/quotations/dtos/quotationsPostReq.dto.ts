@@ -1,9 +1,11 @@
 import { OmitType } from '@nestjs/swagger'
+
 import { omit } from 'lodash'
+
 import {
   QuotationBaseDto,
   quotationBaseValidExample
-} from 'src/dtos/quotation/base.dto'
+} from '@dtos/quotation/base.dto'
 
 export const omitFields = ['expireAt', 'quotationId'] as const
 
