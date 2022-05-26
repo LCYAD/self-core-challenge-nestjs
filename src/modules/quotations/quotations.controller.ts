@@ -58,7 +58,10 @@ export class QuotationsController {
     @Body(
       new ParseArrayPipe({
         items: QuotationsPostReqDto,
-        exceptionFactory: validationExceptionFactory
+        exceptionFactory: validationExceptionFactory,
+        transformOptions: {
+          excludeExtraneousValues: true
+        }
       })
     )
     body: QuotationsPostReqDto[]

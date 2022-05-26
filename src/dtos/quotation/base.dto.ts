@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 
-import { Type } from 'class-transformer'
+import { Expose, Type } from 'class-transformer'
 import {
   ArrayMaxSize,
   ArrayMinSize,
@@ -46,6 +46,7 @@ export const quotationBaseValidExample = {
 }
 
 export class QuotationBaseItemDto {
+  @Expose()
   @IsNumber()
   @ApiProperty({
     example: quotationBaseItemValidExample.quantity,
@@ -53,6 +54,7 @@ export class QuotationBaseItemDto {
   })
   readonly quantity: number
 
+  @Expose()
   @IsNumber()
   @ApiProperty({
     example: quotationBaseItemValidExample.weight,
@@ -60,6 +62,7 @@ export class QuotationBaseItemDto {
   })
   readonly weight: number
 
+  @Expose()
   @IsOptional()
   @IsArray()
   @IsString({ each: true })
@@ -70,6 +73,7 @@ export class QuotationBaseItemDto {
   })
   readonly categories?: string[]
 
+  @Expose()
   @IsOptional()
   @IsArray()
   @IsString({ each: true })
@@ -82,6 +86,7 @@ export class QuotationBaseItemDto {
 }
 
 export class QuotationBaseDto {
+  @Expose()
   @IsString()
   @Matches(QUOTATION_ID_REGEX.regex)
   @ApiProperty({
@@ -90,6 +95,7 @@ export class QuotationBaseDto {
   })
   readonly quotationId: string
 
+  @Expose()
   @IsDateString()
   @ApiProperty({
     example: quotationBaseValidExample.expireAt,
@@ -98,6 +104,7 @@ export class QuotationBaseDto {
   })
   readonly expireAt: string
 
+  @Expose()
   @IsDateString()
   @ApiProperty({
     example: quotationBaseValidExample.scheduleAt,
@@ -106,6 +113,7 @@ export class QuotationBaseDto {
   })
   readonly scheduleAt: string
 
+  @Expose()
   @IsDateString()
   @ApiProperty({
     example: quotationBaseValidExample.deliveryBy,
@@ -114,6 +122,7 @@ export class QuotationBaseDto {
   })
   readonly deliveryBy: string
 
+  @Expose()
   @IsString()
   @ApiProperty({
     example: quotationBaseValidExample.location,
@@ -122,6 +131,7 @@ export class QuotationBaseDto {
   })
   readonly location: string
 
+  @Expose()
   @IsDefined()
   @IsArray()
   @ArrayMinSize(2)
@@ -132,10 +142,13 @@ export class QuotationBaseDto {
     example: quotationBaseValidExample.stops,
     description: 'pickup and dropoff stops',
     type: QuotationStopDto,
-    isArray: true
+    isArray: true,
+    minItems: 2,
+    maxItems: 2
   })
   readonly stops: [QuotationStopDto, QuotationStopDto]
 
+  @Expose()
   @IsDefined()
   @ValidateNested()
   @Type(() => QuotationBaseItemDto)

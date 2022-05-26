@@ -25,7 +25,7 @@ module.exports = {
     node: true,
     jest: true
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'dist', 'node_modules'],
   rules: {
     '@typescript-eslint/await-thenable': 'warn',
     '@typescript-eslint/array-type': [

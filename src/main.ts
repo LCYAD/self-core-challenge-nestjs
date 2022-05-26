@@ -21,6 +21,9 @@ const bootstrap = async () => {
     new ValidationPipe({
       transform: true,
       whitelist: true,
+      transformOptions: {
+        excludeExtraneousValues: true
+      },
       exceptionFactory: validationExceptionFactory
     })
   )
