@@ -1,12 +1,12 @@
 import { HttpException, HttpStatus } from '@nestjs/common'
 
-export class APIRouteNotFoundException extends HttpException {
+export class ResourcesNotFoundException extends HttpException {
   constructor(location = 'unknown', err = null) {
     super(
       {
-        type: 'API_ROUTE_NOT_FOUND',
-        code: '10001',
-        detail: err ?? 'Request API route does not exist',
+        type: 'RESOURCES_NOT_FOUND',
+        code: '10004',
+        detail: err ?? 'The requested resources is not found',
         location
       },
       HttpStatus.NOT_FOUND

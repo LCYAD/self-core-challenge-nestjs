@@ -6,6 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "ldev:services:up": "docker-compose -f docker-compose-ldev.yml up -d",
+    "ldev:services:down": "docker-compose -f docker-compose-ldev.yml down",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -29,7 +31,9 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "fastify-swagger": "^5.2.0",
+    "ioredis": "^5.0.5",
     "lodash": "^4.17.21",
+    "nanoid": "^3.3.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"

@@ -7,9 +7,8 @@ import {
 } from '@nestjs/platform-fastify'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
-import { ValidationException } from './exceptions/validation.exception'
 import { HttpExceptionFilter } from './filters/httpException.filter'
-import { getErrorMsg } from './utils/validation.util'
+import { validationExceptionFactory } from './utils/validation.util'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -20,9 +19,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
-      exceptionFactory: (errors) => {
-        throw new ValidationException('Validation Pipe', getErrorMsg(errors))
-      }
+      exceptionFactory: validationExceptionFactory
     })
   )
   const configService = app.get(ConfigService)

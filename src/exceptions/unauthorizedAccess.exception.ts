@@ -5,7 +5,7 @@ export class UnauthorizedAccessException extends HttpException {
     super(
       {
         type: 'UNAUTHORIZED',
-        code: '10200',
+        code: '10002',
         detail: err ?? 'authorization token was not valid',
         location
       },

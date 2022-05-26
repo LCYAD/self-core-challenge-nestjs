@@ -5,7 +5,7 @@ export class ValidationException extends HttpException {
     super(
       {
         type: 'VALIDATION_ERROR',
-        code: '10100',
+        code: '10001',
         detail: err ?? 'The data was invalid',
         location
       },
