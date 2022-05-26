@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 
-import { Type } from 'class-transformer'
+import { Expose, Type } from 'class-transformer'
 import { IsOptional, IsString, Matches, ValidateNested } from 'class-validator'
 
 import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
@@ -20,6 +20,7 @@ export const quotationStopValidExample = {
 }
 
 export class QuotationStopCoordinatesDto {
+  @Expose()
   @IsString()
   @Matches(LAT__REGEX.regex)
   @ApiProperty({
@@ -30,6 +31,7 @@ export class QuotationStopCoordinatesDto {
   })
   readonly lat: string
 
+  @Expose()
   @IsString()
   @Matches(LNG__REGEX.regex)
   @ApiProperty({
@@ -42,6 +44,7 @@ export class QuotationStopCoordinatesDto {
 }
 
 export class QuotationStopDto {
+  @Expose()
   @IsOptional()
   @ValidateNested()
   @Type(() => QuotationStopCoordinatesDto)
@@ -52,6 +55,7 @@ export class QuotationStopDto {
   })
   readonly coordinates?: QuotationStopCoordinatesDto
 
+  @Expose()
   @IsString()
   @ApiProperty({
     example: quotationStopValidExample.address,

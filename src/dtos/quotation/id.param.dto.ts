@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 
+import { Expose } from 'class-transformer'
 import { IsString, Matches } from 'class-validator'
 
 import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
@@ -10,6 +11,7 @@ export const quotationIdParamValidExample = {
 }
 
 export class QuotationIdParamDto {
+  @Expose()
   @IsString()
   @Matches(QUOTATION_ID_REGEX.regex)
   @ApiProperty({
