@@ -11,18 +11,18 @@ import {
   QuotationsPostReqDto,
   quotationsPostReqValidExample
 } from '../dtos/quotationsPostReq.dto'
-import { QuotationHandler } from '../quotations.handler'
+import { QuotationsHandler } from '../quotations.handler'
 
 jest.mock('ioredis', () => require('ioredis-mock'))
 
-describe('QuotationHandler', () => {
-  let quotationHandler: QuotationHandler
-  let generateQuotationHandler
+describe('QuotationsHandler', () => {
+  let quotationHandler: QuotationsHandler
+  let generateQuotationsHandler
   let spyRedisGet: jest.SpyInstance
   let spyRedisSet: jest.SpyInstance
 
   beforeAll(() => {
-    generateQuotationHandler = () => new QuotationHandler()
+    generateQuotationsHandler = () => new QuotationsHandler()
     jest.spyOn(Date, 'now').mockReturnValue(COMMON_FIELD.CURRENT_TIME_MILLI_SEC)
     jest
       .spyOn(nano, 'customAlphabet')
@@ -34,7 +34,7 @@ describe('QuotationHandler', () => {
   describe('getQuotationById', () => {
     it('should return quotation', async () => {
       spyRedisGet.mockReturnValueOnce(JSON.stringify(quotationBaseValidExample))
-      quotationHandler = generateQuotationHandler()
+      quotationHandler = generateQuotationsHandler()
       const result = await quotationHandler.getQuotationById(
         quotationIdParamValidExample as QuotationIdParamDto
       )
@@ -43,7 +43,7 @@ describe('QuotationHandler', () => {
     })
     it('should throw ResourcesNotFoundException if quotation is not found', async () => {
       spyRedisGet.mockReturnValueOnce(undefined)
-      quotationHandler = generateQuotationHandler()
+      quotationHandler = generateQuotationsHandler()
       try {
         await quotationHandler.getQuotationById(
           quotationIdParamValidExample as QuotationIdParamDto
@@ -66,7 +66,7 @@ describe('QuotationHandler', () => {
           COMMON_FIELD.CURRENT_TIME_MILLI_SEC + 5 * 60 * 1000
         ).toISOString()
       }
-      quotationHandler = generateQuotationHandler()
+      quotationHandler = generateQuotationsHandler()
       const result = await quotationHandler.createQuotations([
         quotationsPostReqValidExample
       ] as QuotationsPostReqDto[])

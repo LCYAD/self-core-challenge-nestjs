@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /quotations/:id error cases should throw Validation Error if quotation id is invalid 1`] = `
+Object {
+  "code": "10001",
+  "detail": Array [
+    Object {
+      "msg": "{\\"matches\\":\\"id must match /^[0-9]{12}$/ regular expression\\"}",
+      "path": "id",
+      "value": "xxx",
+    },
+  ],
+  "type": "VALIDATION_ERROR",
+}
+`;
+
+exports[`GET /quotations/:id error cases should throw error if quotation is not found 1`] = `
+[MockFunction spyHandlerGetQuotationById] {
+  "calls": Array [
+    Array [
+      QuotationIdParamDto {
+        "id": "182379172831",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`GET /quotations/:id error cases should throw error if quotation is not found 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "182379172831",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`GET /quotations/:id error cases should throw error if quotation is not found 3`] = `
+Object {
+  "code": "10004",
+  "detail": "Quotation not found",
+  "type": "RESOURCES_NOT_FOUND",
+}
+`;
+
+exports[`GET /quotations/:id success cases should return correct response 1`] = `
+[MockFunction spyHandlerGetQuotationById] {
+  "calls": Array [
+    Array [
+      QuotationIdParamDto {
+        "id": "182379172831",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`GET /quotations/:id success cases should return correct response 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "182379172831",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": "{\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T01:00:00.000Z\\",\\"scheduleAt\\":\\"2022-05-21T00:00:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"location\\":\\"Hong Kong\\",\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]}}",
+    },
+  ],
+}
+`;
+
+exports[`GET /quotations/:id success cases should return correct response 3`] = `
+Object {
+  "deliveryBy": "2022-05-21T01:00:00.000Z",
+  "expireAt": "2022-05-21T01:00:00.000Z",
+  "item": Object {
+    "categories": Array [
+      "test",
+    ],
+    "handlingInstructions": Array [
+      "test",
+    ],
+    "quantity": 1,
+    "weight": 1,
+  },
+  "location": "Hong Kong",
+  "quotationId": "182379172831",
+  "scheduleAt": "2022-05-21T00:00:00.000Z",
+  "stops": Array [
+    Object {
+      "address": "999 Prince Edward Road",
+      "coordinates": Object {
+        "lat": "22.335313",
+        "lng": "114.175840",
+      },
+    },
+    Object {
+      "address": "InnoCentre, 72 Tat Chee Avenue",
+      "coordinates": Object {
+        "lat": "22.335313",
+        "lng": "114.175840",
+      },
+    },
+  ],
+}
+`;

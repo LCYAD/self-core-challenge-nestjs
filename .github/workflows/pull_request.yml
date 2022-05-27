@@ -33,3 +33,4 @@ jobs:
           yarn
           yarn lint --quiet
           yarn test:unit
+          yarn test:integration

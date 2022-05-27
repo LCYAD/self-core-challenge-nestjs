@@ -1,0 +1,42 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "roots": ["<rootDir>/__tests__/"],
+  "testEnvironment": "node",
+  "testRegex": ".spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverage": true,
+  "coverageDirectory": "./coverage",
+  "coverageReporters": ["json", "lcov", "text", "clover", "json-summary"],
+  "reporters": [
+    "default",
+    ["jest-ratchet", { "tolerance": 2, "roundDown": true, "timeout": 30000 }]
+  ],
+  "coveragePathIgnorePatterns": ["/node_modules/", "/helper/", "/config/"],
+  "globals": {
+    "ts-jest": {
+      "diagnostics": {
+        "warnOnly": true,
+        "pathRegex": "\\.(spec|test)\\.ts$"
+      },
+      "isolatedModules": true
+    }
+  },
+  "moduleNameMapper": {
+    "^@config/(.*)$": "<rootDir>/src/config/$1",
+    "^@constants/(.*)$": "<rootDir>/src/constants/$1",
+    "^@decorators/(.*)$": "<rootDir>/src/decorators/$1",
+    "^@dtos/(.*)$": "<rootDir>/src/dtos/$1",
+    "^@exceptions/(.*)$": "<rootDir>/src/exceptions/$1",
+    "^@filters/(.*)$": "<rootDir>/src/filters/$1",
+    "^@guards/(.*)$": "<rootDir>/src/guards/$1",
+    "^@interceptors/(.*)$": "<rootDir>/src/interceptors/$1",
+    "^@middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "^@pipes/(.*)$": "<rootDir>/src/pipes/$1",
+    "^@tests/(.*)$": "<rootDir>/__tests__/$1"
+  }
+}
