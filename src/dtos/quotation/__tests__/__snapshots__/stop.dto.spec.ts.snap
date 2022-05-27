@@ -8,10 +8,6 @@ Array [
       "matches": "lat must match /^(\\\\+|-)?(?:90(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lat",
-    "target": QuotationStopCoordinatesDto {
-      "lat": "abc",
-      "lng": "114.175840",
-    },
     "value": "abc",
   },
 ]
@@ -25,10 +21,6 @@ Array [
       "matches": "lng must match /^(\\\\+|-)?(?:180(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lng",
-    "target": QuotationStopCoordinatesDto {
-      "lat": "22.335313",
-      "lng": "abc",
-    },
     "value": "abc",
   },
 ]
@@ -43,10 +35,6 @@ Array [
       "matches": "lat must match /^(\\\\+|-)?(?:90(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lat",
-    "target": QuotationStopCoordinatesDto {
-      "lat": undefined,
-      "lng": "114.175840",
-    },
     "value": undefined,
   },
 ]
@@ -61,10 +49,6 @@ Array [
       "matches": "lng must match /^(\\\\+|-)?(?:180(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lng",
-    "target": QuotationStopCoordinatesDto {
-      "lat": "22.335313",
-      "lng": undefined,
-    },
     "value": undefined,
   },
 ]
@@ -78,13 +62,6 @@ Array [
       "isString": "address must be a string",
     },
     "property": "address",
-    "target": QuotationStopDto {
-      "address": undefined,
-      "coordinates": QuotationStopCoordinatesDto {
-        "lat": "22.335313",
-        "lng": "114.175840",
-      },
-    },
     "value": undefined,
   },
 ]

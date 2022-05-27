@@ -16,6 +16,7 @@ import {
 
 import { COMMON_FIELD } from '@constants/fakers/common.faker.constant'
 import { QUOTATION_ID_REGEX } from '@constants/regexes/quotation.regex.constant'
+import { IsLaterThan } from '@decorators/validation/isLaterThan.decorator'
 
 import { QuotationStopDto, quotationStopValidExample } from './stop.dto'
 
@@ -115,6 +116,7 @@ export class QuotationBaseDto {
 
   @Expose()
   @IsDateString()
+  @IsLaterThan('scheduleAt')
   @ApiProperty({
     example: quotationBaseValidExample.deliveryBy,
     type: 'string',

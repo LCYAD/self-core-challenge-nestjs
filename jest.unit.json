@@ -20,7 +20,8 @@
       "diagnostics": {
         "warnOnly": true,
         "pathRegex": "\\.(spec|test)\\.ts$"
-      }
+      },
+      "isolatedModules": true
     }
   },
   "moduleNameMapper": {
