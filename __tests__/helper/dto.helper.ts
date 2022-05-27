@@ -3,6 +3,8 @@ import { instanceToPlain, plainToInstance } from 'class-transformer'
 import { validateSync } from 'class-validator'
 import _ from 'lodash'
 
+import config from '@config/index'
+
 const classTransformOptions = {
   excludeExtraneousValues: true
 }
@@ -19,12 +21,7 @@ export const testValid = (done) => (dtoSchema, testObj) => {
 
 export const testInvalid = (done) => (dtoSchema, testObj) => {
   const classObject = plainToInstance(dtoSchema, testObj, classTransformOptions)
-  const errors = validateSync(classObject, {
-    validationError: {
-      target: false,
-      value: true
-    }
-  })
+  const errors = validateSync(classObject, config().validatorOptions)
   if (errors.length) {
     expect(errors).toMatchSnapshot()
     done()
