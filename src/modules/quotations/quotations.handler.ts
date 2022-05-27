@@ -11,12 +11,12 @@ import { redis } from '@utils/redis.util'
 import type { QuotationsPostReqDto } from './dtos/quotationsPostReq.dto'
 
 @Injectable()
-export class QuotationHandler {
+export class QuotationsHandler {
   async getQuotationById({ id }: QuotationIdParamDto) {
     const quotation = await redis.get(id)
     if (!quotation) {
       throw new ResourcesNotFoundException(
-        'QuotationHandlerService:getQuotationById',
+        'QuotationsHandler:getQuotationById',
         'Quotation not found'
       )
     }

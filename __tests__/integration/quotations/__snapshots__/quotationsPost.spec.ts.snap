@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`POST /quotations error cases should throw Validation Error if body is invalid 1`] = `
+Object {
+  "code": "10001",
+  "detail": Array [
+    Object {
+      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt\\",\\"isDateString\\":\\"deliveryBy must be a valid ISO 8601 date string\\"}",
+      "path": "0.deliveryBy",
+    },
+  ],
+  "type": "VALIDATION_ERROR",
+}
+`;
+
+exports[`POST /quotations error cases should throw Validation Error if scheduleAt is after deliveryBy  1`] = `
+Object {
+  "code": "10001",
+  "detail": Array [
+    Object {
+      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt\\"}",
+      "path": "0.deliveryBy",
+      "value": "2022-05-21T00:00:00.000Z",
+    },
+  ],
+  "type": "VALIDATION_ERROR",
+}
+`;
+
+exports[`POST /quotations success cases should return correct response 1`] = `
+[MockFunction spyHandlerCreateQuotations] {
+  "calls": Array [
+    Array [
+      Array [
+        Object {
+          "deliveryBy": "2022-05-21T01:00:00.000Z",
+          "item": Object {
+            "categories": Array [
+              "test",
+            ],
+            "handlingInstructions": Array [
+              "test",
+            ],
+            "quantity": 1,
+            "weight": 1,
+          },
+          "location": "Hong Kong",
+          "scheduleAt": "2022-05-21T00:00:00.000Z",
+          "stops": Array [
+            Object {
+              "address": "999 Prince Edward Road",
+              "coordinates": Object {
+                "lat": "22.335313",
+                "lng": "114.175840",
+              },
+            },
+            Object {
+              "address": "InnoCentre, 72 Tat Chee Avenue",
+              "coordinates": Object {
+                "lat": "22.335313",
+                "lng": "114.175840",
+              },
+            },
+          ],
+        },
+      ],
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`POST /quotations success cases should return correct response 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "182379172831",
+      "{\\"scheduleAt\\":\\"2022-05-21T00:00:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`POST /quotations success cases should return correct response 3`] = `
+Array [
+  Object {
+    "deliveryBy": "2022-05-21T01:00:00.000Z",
+    "expireAt": "2022-05-21T00:05:00.000Z",
+    "item": Object {
+      "categories": Array [
+        "test",
+      ],
+      "handlingInstructions": Array [
+        "test",
+      ],
+      "quantity": 1,
+      "weight": 1,
+    },
+    "location": "Hong Kong",
+    "quotationId": "182379172831",
+    "scheduleAt": "2022-05-21T00:00:00.000Z",
+    "stops": Array [
+      Object {
+        "address": "999 Prince Edward Road",
+        "coordinates": Object {
+          "lat": "22.335313",
+          "lng": "114.175840",
+        },
+      },
+      Object {
+        "address": "InnoCentre, 72 Tat Chee Avenue",
+        "coordinates": Object {
+          "lat": "22.335313",
+          "lng": "114.175840",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`POST /quotations success cases should return correct response if coordinates is not provided 1`] = `
+[MockFunction spyHandlerCreateQuotations] {
+  "calls": Array [
+    Array [
+      Array [
+        Object {
+          "deliveryBy": "2022-05-21T01:00:00.000Z",
+          "item": Object {
+            "categories": Array [
+              "test",
+            ],
+            "handlingInstructions": Array [
+              "test",
+            ],
+            "quantity": 1,
+            "weight": 1,
+          },
+          "location": "Hong Kong",
+          "scheduleAt": "2022-05-21T00:00:00.000Z",
+          "stops": Array [
+            Object {
+              "address": "999 Prince Edward Road",
+              "coordinates": undefined,
+            },
+            Object {
+              "address": "InnoCentre, 72 Tat Chee Avenue",
+              "coordinates": undefined,
+            },
+          ],
+        },
+      ],
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`POST /quotations success cases should return correct response if coordinates is not provided 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "182379172831",
+      "{\\"scheduleAt\\":\\"2022-05-21T00:00:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"address\\":\\"999 Prince Edward Road\\"},{\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`POST /quotations success cases should return correct response if coordinates is not provided 3`] = `
+Array [
+  Object {
+    "deliveryBy": "2022-05-21T01:00:00.000Z",
+    "expireAt": "2022-05-21T00:05:00.000Z",
+    "item": Object {
+      "categories": Array [
+        "test",
+      ],
+      "handlingInstructions": Array [
+        "test",
+      ],
+      "quantity": 1,
+      "weight": 1,
+    },
+    "location": "Hong Kong",
+    "quotationId": "182379172831",
+    "scheduleAt": "2022-05-21T00:00:00.000Z",
+    "stops": Array [
+      Object {
+        "address": "999 Prince Edward Road",
+      },
+      Object {
+        "address": "InnoCentre, 72 Tat Chee Avenue",
+      },
+    ],
+  },
+]
+`;

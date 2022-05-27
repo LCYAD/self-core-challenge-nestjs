@@ -38,6 +38,7 @@ export class ArrayValidationPipe implements PipeTransform {
       if (_.some(errors, (error) => error.length !== 0)) {
         void this.exceptionFactory(errors)
       }
+      // TODO: remove deep level undefined
       return _.map(instanceToPlain(classObject), (obj) =>
         _.omitBy(obj, _.isUndefined)
       )

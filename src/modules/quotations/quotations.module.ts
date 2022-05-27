@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common'
 
 import { QuotationsController } from './quotations.controller'
-import { QuotationHandler } from './quotations.handler'
+import { QuotationsHandler } from './quotations.handler'
 
 @Module({
   imports: [],
   controllers: [QuotationsController],
-  providers: [QuotationHandler]
+  providers: [QuotationsHandler]
 })
 export class QuotationsModule {}
