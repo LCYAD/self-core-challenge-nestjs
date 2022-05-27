@@ -8,7 +8,7 @@ import { parseDescription } from '@utils/swagger.util'
 import { getValidationExceptionFactory } from '@utils/validation.util'
 
 import { QuotationsPostReqDto } from './dtos/quotationsPostReq.dto'
-import { QuotationHandlerService } from './quotations.handler.service'
+import { QuotationHandler } from './quotations.handler'
 
 const GET_QUOTATION_BY_ID_DESCRIPTION = parseDescription([
   'get quotation by quotation Id'
@@ -18,9 +18,7 @@ const POST_QUOTATION_DESCRIPTION = parseDescription(['batch create quotations'])
 
 @Controller('quotations')
 export class QuotationsController {
-  constructor(
-    private readonly quotationHandlerService: QuotationHandlerService
-  ) {}
+  constructor(private readonly quotationHandler: QuotationHandler) {}
 
   @Get(':id')
   @ApiOperation({
@@ -32,7 +30,7 @@ export class QuotationsController {
     type: QuotationBaseDto
   })
   getQuotationById(@Param() param: QuotationIdParamDto) {
-    return this.quotationHandlerService.getQuotationById(param)
+    return this.quotationHandler.getQuotationById(param)
   }
 
   @Post()
@@ -59,6 +57,6 @@ export class QuotationsController {
     )
     body: QuotationsPostReqDto[]
   ) {
-    return this.quotationHandlerService.createQuotations(body)
+    return this.quotationHandler.createQuotations(body)
   }
 }
