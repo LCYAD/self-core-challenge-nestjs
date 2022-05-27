@@ -19,7 +19,12 @@ export const testValid = (done) => (dtoSchema, testObj) => {
 
 export const testInvalid = (done) => (dtoSchema, testObj) => {
   const classObject = plainToInstance(dtoSchema, testObj, classTransformOptions)
-  const errors = validateSync(classObject)
+  const errors = validateSync(classObject, {
+    validationError: {
+      target: false,
+      value: true
+    }
+  })
   if (errors.length) {
     expect(errors).toMatchSnapshot()
     done()
