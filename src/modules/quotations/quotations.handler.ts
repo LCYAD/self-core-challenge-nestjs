@@ -11,7 +11,7 @@ import { redis } from '@utils/redis.util'
 import type { QuotationsPostReqDto } from './dtos/quotationsPostReq.dto'
 
 @Injectable()
-export class QuotationHandlerService {
+export class QuotationHandler {
   async getQuotationById({ id }: QuotationIdParamDto) {
     const quotation = await redis.get(id)
     if (!quotation) {
