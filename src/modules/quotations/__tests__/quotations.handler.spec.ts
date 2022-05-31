@@ -62,9 +62,7 @@ describe('QuotationsHandler', () => {
       const expectedResult = {
         ...quotationsPostReqValidExample,
         quotationId: COMMON_FIELD.QUOTATION_ID_FIELD,
-        expireAt: new Date(
-          COMMON_FIELD.CURRENT_TIME_MILLI_SEC + 5 * 60 * 1000
-        ).toISOString()
+        expireAt: COMMON_FIELD.AFTER_5_MINS_CURRENT_TIME
       }
       quotationHandler = generateQuotationsHandler()
       const result = await quotationHandler.createQuotations([

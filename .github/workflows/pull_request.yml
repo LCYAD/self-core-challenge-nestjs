@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     name: Pull Request Development
     runs-on: ubuntu-latest
 
