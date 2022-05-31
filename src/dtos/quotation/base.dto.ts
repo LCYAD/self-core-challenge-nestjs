@@ -30,7 +30,7 @@ export const quotationBaseItemValidExample = {
 export const quotationBaseValidExample = {
   quotationId: COMMON_FIELD.QUOTATION_ID_FIELD,
   expireAt: COMMON_FIELD.AFTER_1HR_CURRENT_TIME,
-  scheduleAt: COMMON_FIELD.CURRENT_TIME,
+  scheduleAt: COMMON_FIELD.AFTER_5_MINS_CURRENT_TIME,
   deliveryBy: COMMON_FIELD.AFTER_1HR_CURRENT_TIME,
   stops: [
     {
@@ -107,6 +107,7 @@ export class QuotationBaseDto {
 
   @Expose()
   @IsDateString()
+  @IsLaterThan([{ key: 'now' }])
   @ApiProperty({
     example: quotationBaseValidExample.scheduleAt,
     type: 'string',
@@ -116,7 +117,7 @@ export class QuotationBaseDto {
 
   @Expose()
   @IsDateString()
-  @IsLaterThan('scheduleAt')
+  @IsLaterThan<'scheduleAt'>([{ key: 'scheduleAt' }, { key: 'now' }])
   @ApiProperty({
     example: quotationBaseValidExample.deliveryBy,
     type: 'string',

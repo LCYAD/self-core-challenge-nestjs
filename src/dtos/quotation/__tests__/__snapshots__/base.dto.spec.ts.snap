@@ -5,7 +5,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
-      "IsLaterThan": "deliveryBy must be later than scheduleAt",
+      "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
     "value": "2022-05-21T00:00:00.000Z",
@@ -18,7 +18,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
-      "IsLaterThan": "deliveryBy must be later than scheduleAt",
+      "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
       "isDateString": "deliveryBy must be a valid ISO 8601 date string",
     },
     "property": "deliveryBy",
@@ -100,7 +100,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
-      "IsLaterThan": "deliveryBy must be later than scheduleAt",
+      "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
       "isDateString": "deliveryBy must be a valid ISO 8601 date string",
     },
     "property": "deliveryBy",
@@ -167,6 +167,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
+      "IsLaterThan": "scheduleAt must be later than now",
       "isDateString": "scheduleAt must be a valid ISO 8601 date string",
     },
     "property": "scheduleAt",
@@ -175,7 +176,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
-      "IsLaterThan": "deliveryBy must be later than scheduleAt",
+      "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
     "value": "2022-05-21T01:00:00.000Z",
@@ -217,6 +218,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
+      "IsLaterThan": "scheduleAt must be later than now",
       "isDateString": "scheduleAt must be a valid ISO 8601 date string",
     },
     "property": "scheduleAt",
@@ -225,7 +227,7 @@ Array [
   ValidationError {
     "children": Array [],
     "constraints": Object {
-      "IsLaterThan": "deliveryBy must be later than scheduleAt",
+      "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
     "value": "2022-05-21T01:00:00.000Z",

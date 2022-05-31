@@ -51,6 +51,9 @@ describe('QuotationBaseItemDto', () => {
 })
 
 describe('QuotationBaseDto', () => {
+  beforeAll(() => {
+    jest.spyOn(Date, 'now').mockReturnValue(COMMON_FIELD.CURRENT_TIME_MILLI_SEC)
+  })
   describe('valid response', () => {
     generateValidBaseTest(QuotationBaseDto, quotationBaseValidExample)
   })
