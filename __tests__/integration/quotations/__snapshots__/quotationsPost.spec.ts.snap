@@ -5,7 +5,7 @@ Object {
   "code": "10001",
   "detail": Array [
     Object {
-      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt\\",\\"isDateString\\":\\"deliveryBy must be a valid ISO 8601 date string\\"}",
+      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt, now\\",\\"isDateString\\":\\"deliveryBy must be a valid ISO 8601 date string\\"}",
       "path": "0.deliveryBy",
     },
   ],
@@ -18,7 +18,7 @@ Object {
   "code": "10001",
   "detail": Array [
     Object {
-      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt\\"}",
+      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt, now\\"}",
       "path": "0.deliveryBy",
       "value": "2022-05-21T00:00:00.000Z",
     },
@@ -45,7 +45,7 @@ exports[`POST /quotations success cases should return correct response 1`] = `
             "weight": 1,
           },
           "location": "Hong Kong",
-          "scheduleAt": "2022-05-21T00:00:00.000Z",
+          "scheduleAt": "2022-05-21T00:05:00.000Z",
           "stops": Array [
             Object {
               "address": "999 Prince Edward Road",
@@ -80,7 +80,7 @@ exports[`POST /quotations success cases should return correct response 2`] = `
   "calls": Array [
     Array [
       "182379172831",
-      "{\\"scheduleAt\\":\\"2022-05-21T00:00:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+      "{\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
     ],
   ],
   "results": Array [
@@ -109,7 +109,7 @@ Array [
     },
     "location": "Hong Kong",
     "quotationId": "182379172831",
-    "scheduleAt": "2022-05-21T00:00:00.000Z",
+    "scheduleAt": "2022-05-21T00:05:00.000Z",
     "stops": Array [
       Object {
         "address": "999 Prince Edward Road",
@@ -148,7 +148,7 @@ exports[`POST /quotations success cases should return correct response if coordi
             "weight": 1,
           },
           "location": "Hong Kong",
-          "scheduleAt": "2022-05-21T00:00:00.000Z",
+          "scheduleAt": "2022-05-21T00:05:00.000Z",
           "stops": Array [
             Object {
               "address": "999 Prince Edward Road",
@@ -177,7 +177,7 @@ exports[`POST /quotations success cases should return correct response if coordi
   "calls": Array [
     Array [
       "182379172831",
-      "{\\"scheduleAt\\":\\"2022-05-21T00:00:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"address\\":\\"999 Prince Edward Road\\"},{\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+      "{\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"address\\":\\"999 Prince Edward Road\\"},{\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
     ],
   ],
   "results": Array [
@@ -206,7 +206,7 @@ Array [
     },
     "location": "Hong Kong",
     "quotationId": "182379172831",
-    "scheduleAt": "2022-05-21T00:00:00.000Z",
+    "scheduleAt": "2022-05-21T00:05:00.000Z",
     "stops": Array [
       Object {
         "address": "999 Prince Edward Road",
