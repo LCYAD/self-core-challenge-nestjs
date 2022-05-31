@@ -84,7 +84,7 @@ exports[`GET /quotations/:id success cases should return correct response 2`] = 
   "results": Array [
     Object {
       "type": "return",
-      "value": "{\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T01:00:00.000Z\\",\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"location\\":\\"Hong Kong\\",\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]}}",
+      "value": "{\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"location\\":\\"Hong Kong\\",\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]}}",
     },
   ],
 }
@@ -93,7 +93,7 @@ exports[`GET /quotations/:id success cases should return correct response 2`] = 
 exports[`GET /quotations/:id success cases should return correct response 3`] = `
 Object {
   "deliveryBy": "2022-05-21T01:00:00.000Z",
-  "expireAt": "2022-05-21T01:00:00.000Z",
+  "expireAt": "2022-05-21T00:05:00.000Z",
   "item": Object {
     "categories": Array [
       "test",
