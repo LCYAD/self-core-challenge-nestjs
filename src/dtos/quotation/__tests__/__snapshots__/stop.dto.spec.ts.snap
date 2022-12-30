@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QuotationStopCoordinatesDto invalid response for lat not a allowed value abc 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
-      "matches": "lat must match /^(\\\\+|-)?(?:90(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
+    "children": [],
+    "constraints": {
+      "matches": "lat must match /^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lat",
     "value": "abc",
@@ -14,11 +14,11 @@ Array [
 `;
 
 exports[`QuotationStopCoordinatesDto invalid response for lng not a allowed value abc 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
-      "matches": "lng must match /^(\\\\+|-)?(?:180(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
+    "children": [],
+    "constraints": {
+      "matches": "lng must match /^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lng",
     "value": "abc",
@@ -27,12 +27,12 @@ Array [
 `;
 
 exports[`QuotationStopCoordinatesDto invalid response for missing lat 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "lat must be a string",
-      "matches": "lat must match /^(\\\\+|-)?(?:90(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
+      "matches": "lat must match /^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lat",
     "value": undefined,
@@ -41,12 +41,12 @@ Array [
 `;
 
 exports[`QuotationStopCoordinatesDto invalid response for missing lng 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "lng must be a string",
-      "matches": "lng must match /^(\\\\+|-)?(?:180(?:(?:\\\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\\\.[0-9]{1,6})?))$/ regular expression",
+      "matches": "lng must match /^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$/ regular expression",
     },
     "property": "lng",
     "value": undefined,
@@ -55,10 +55,10 @@ Array [
 `;
 
 exports[`QuotationStopDto invalid response for missing address 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "address must be a string",
     },
     "property": "address",

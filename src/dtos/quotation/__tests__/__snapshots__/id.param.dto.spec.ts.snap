@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QuotationIdParamDto invalid response for id not a allowed value 1 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "matches": "id must match /^[0-9]{12}$/ regular expression",
     },
     "property": "id",
@@ -14,10 +14,10 @@ Array [
 `;
 
 exports[`QuotationIdParamDto invalid response for missing id 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "id must be a string",
       "matches": "id must match /^[0-9]{12}$/ regular expression",
     },

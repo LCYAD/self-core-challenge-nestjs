@@ -5,7 +5,16 @@
   "testEnvironment": "node",
   "testRegex": ".spec.ts$",
   "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
+    "^.+\\.(t|j)s$": [
+      "ts-jest",
+      {
+        "diagnostics": {
+          "warnOnly": true,
+          "pathRegex": "\\.(spec|test)\\.ts$"
+        },
+        "isolatedModules": true
+      }
+    ]
   },
   "collectCoverage": true,
   "coverageDirectory": "./coverage",
@@ -15,15 +24,6 @@
     ["jest-ratchet", { "tolerance": 2, "roundDown": true, "timeout": 30000 }]
   ],
   "coveragePathIgnorePatterns": ["/node_modules/", "/helper/", "/config/"],
-  "globals": {
-    "ts-jest": {
-      "diagnostics": {
-        "warnOnly": true,
-        "pathRegex": "\\.(spec|test)\\.ts$"
-      },
-      "isolatedModules": true
-    }
-  },
   "moduleNameMapper": {
     "^@config/(.*)$": "<rootDir>/src/config/$1",
     "^@constants/(.*)$": "<rootDir>/src/constants/$1",
