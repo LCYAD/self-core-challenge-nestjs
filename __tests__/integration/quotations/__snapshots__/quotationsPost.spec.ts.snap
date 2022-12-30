@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`POST /quotations error cases should throw Validation Error if body is invalid 1`] = `
-Object {
+{
   "code": "10001",
-  "detail": Array [
-    Object {
-      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt, now\\",\\"isDateString\\":\\"deliveryBy must be a valid ISO 8601 date string\\"}",
+  "detail": [
+    {
+      "msg": "{"IsLaterThan":"deliveryBy must be later than scheduleAt, now","isDateString":"deliveryBy must be a valid ISO 8601 date string"}",
       "path": "0.deliveryBy",
     },
   ],
@@ -14,11 +14,11 @@ Object {
 `;
 
 exports[`POST /quotations error cases should throw Validation Error if scheduleAt is after deliveryBy  1`] = `
-Object {
+{
   "code": "10001",
-  "detail": Array [
-    Object {
-      "msg": "{\\"IsLaterThan\\":\\"deliveryBy must be later than scheduleAt, now\\"}",
+  "detail": [
+    {
+      "msg": "{"IsLaterThan":"deliveryBy must be later than scheduleAt, now"}",
       "path": "0.deliveryBy",
       "value": "2022-05-21T00:00:00.000Z",
     },
@@ -29,16 +29,16 @@ Object {
 
 exports[`POST /quotations success cases should return correct response 1`] = `
 [MockFunction spyHandlerCreateQuotations] {
-  "calls": Array [
-    Array [
-      Array [
-        Object {
+  "calls": [
+    [
+      [
+        {
           "deliveryBy": "2022-05-21T01:00:00.000Z",
-          "item": Object {
-            "categories": Array [
+          "item": {
+            "categories": [
               "test",
             ],
-            "handlingInstructions": Array [
+            "handlingInstructions": [
               "test",
             ],
             "quantity": 1,
@@ -46,17 +46,17 @@ exports[`POST /quotations success cases should return correct response 1`] = `
           },
           "location": "Hong Kong",
           "scheduleAt": "2022-05-21T00:05:00.000Z",
-          "stops": Array [
-            Object {
+          "stops": [
+            {
               "address": "999 Prince Edward Road",
-              "coordinates": Object {
+              "coordinates": {
                 "lat": "22.335313",
                 "lng": "114.175840",
               },
             },
-            Object {
+            {
               "address": "InnoCentre, 72 Tat Chee Avenue",
-              "coordinates": Object {
+              "coordinates": {
                 "lat": "22.335313",
                 "lng": "114.175840",
               },
@@ -66,8 +66,8 @@ exports[`POST /quotations success cases should return correct response 1`] = `
       ],
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": Promise {},
     },
@@ -77,14 +77,14 @@ exports[`POST /quotations success cases should return correct response 1`] = `
 
 exports[`POST /quotations success cases should return correct response 2`] = `
 [MockFunction] {
-  "calls": Array [
-    Array [
+  "calls": [
+    [
       "182379172831",
-      "{\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"999 Prince Edward Road\\"},{\\"coordinates\\":{\\"lat\\":\\"22.335313\\",\\"lng\\":\\"114.175840\\"},\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+      "{"scheduleAt":"2022-05-21T00:05:00.000Z","deliveryBy":"2022-05-21T01:00:00.000Z","location":"Hong Kong","stops":[{"coordinates":{"lat":"22.335313","lng":"114.175840"},"address":"999 Prince Edward Road"},{"coordinates":{"lat":"22.335313","lng":"114.175840"},"address":"InnoCentre, 72 Tat Chee Avenue"}],"item":{"quantity":1,"weight":1,"categories":["test"],"handlingInstructions":["test"]},"quotationId":"182379172831","expireAt":"2022-05-21T00:05:00.000Z"}",
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": undefined,
     },
@@ -93,15 +93,15 @@ exports[`POST /quotations success cases should return correct response 2`] = `
 `;
 
 exports[`POST /quotations success cases should return correct response 3`] = `
-Array [
-  Object {
+[
+  {
     "deliveryBy": "2022-05-21T01:00:00.000Z",
     "expireAt": "2022-05-21T00:05:00.000Z",
-    "item": Object {
-      "categories": Array [
+    "item": {
+      "categories": [
         "test",
       ],
-      "handlingInstructions": Array [
+      "handlingInstructions": [
         "test",
       ],
       "quantity": 1,
@@ -110,17 +110,17 @@ Array [
     "location": "Hong Kong",
     "quotationId": "182379172831",
     "scheduleAt": "2022-05-21T00:05:00.000Z",
-    "stops": Array [
-      Object {
+    "stops": [
+      {
         "address": "999 Prince Edward Road",
-        "coordinates": Object {
+        "coordinates": {
           "lat": "22.335313",
           "lng": "114.175840",
         },
       },
-      Object {
+      {
         "address": "InnoCentre, 72 Tat Chee Avenue",
-        "coordinates": Object {
+        "coordinates": {
           "lat": "22.335313",
           "lng": "114.175840",
         },
@@ -132,16 +132,16 @@ Array [
 
 exports[`POST /quotations success cases should return correct response if coordinates is not provided 1`] = `
 [MockFunction spyHandlerCreateQuotations] {
-  "calls": Array [
-    Array [
-      Array [
-        Object {
+  "calls": [
+    [
+      [
+        {
           "deliveryBy": "2022-05-21T01:00:00.000Z",
-          "item": Object {
-            "categories": Array [
+          "item": {
+            "categories": [
               "test",
             ],
-            "handlingInstructions": Array [
+            "handlingInstructions": [
               "test",
             ],
             "quantity": 1,
@@ -149,12 +149,12 @@ exports[`POST /quotations success cases should return correct response if coordi
           },
           "location": "Hong Kong",
           "scheduleAt": "2022-05-21T00:05:00.000Z",
-          "stops": Array [
-            Object {
+          "stops": [
+            {
               "address": "999 Prince Edward Road",
               "coordinates": undefined,
             },
-            Object {
+            {
               "address": "InnoCentre, 72 Tat Chee Avenue",
               "coordinates": undefined,
             },
@@ -163,8 +163,8 @@ exports[`POST /quotations success cases should return correct response if coordi
       ],
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": Promise {},
     },
@@ -174,14 +174,14 @@ exports[`POST /quotations success cases should return correct response if coordi
 
 exports[`POST /quotations success cases should return correct response if coordinates is not provided 2`] = `
 [MockFunction] {
-  "calls": Array [
-    Array [
+  "calls": [
+    [
       "182379172831",
-      "{\\"scheduleAt\\":\\"2022-05-21T00:05:00.000Z\\",\\"deliveryBy\\":\\"2022-05-21T01:00:00.000Z\\",\\"location\\":\\"Hong Kong\\",\\"stops\\":[{\\"address\\":\\"999 Prince Edward Road\\"},{\\"address\\":\\"InnoCentre, 72 Tat Chee Avenue\\"}],\\"item\\":{\\"quantity\\":1,\\"weight\\":1,\\"categories\\":[\\"test\\"],\\"handlingInstructions\\":[\\"test\\"]},\\"quotationId\\":\\"182379172831\\",\\"expireAt\\":\\"2022-05-21T00:05:00.000Z\\"}",
+      "{"scheduleAt":"2022-05-21T00:05:00.000Z","deliveryBy":"2022-05-21T01:00:00.000Z","location":"Hong Kong","stops":[{"address":"999 Prince Edward Road"},{"address":"InnoCentre, 72 Tat Chee Avenue"}],"item":{"quantity":1,"weight":1,"categories":["test"],"handlingInstructions":["test"]},"quotationId":"182379172831","expireAt":"2022-05-21T00:05:00.000Z"}",
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": undefined,
     },
@@ -190,15 +190,15 @@ exports[`POST /quotations success cases should return correct response if coordi
 `;
 
 exports[`POST /quotations success cases should return correct response if coordinates is not provided 3`] = `
-Array [
-  Object {
+[
+  {
     "deliveryBy": "2022-05-21T01:00:00.000Z",
     "expireAt": "2022-05-21T00:05:00.000Z",
-    "item": Object {
-      "categories": Array [
+    "item": {
+      "categories": [
         "test",
       ],
-      "handlingInstructions": Array [
+      "handlingInstructions": [
         "test",
       ],
       "quantity": 1,
@@ -207,11 +207,11 @@ Array [
     "location": "Hong Kong",
     "quotationId": "182379172831",
     "scheduleAt": "2022-05-21T00:05:00.000Z",
-    "stops": Array [
-      Object {
+    "stops": [
+      {
         "address": "999 Prince Edward Road",
       },
-      Object {
+      {
         "address": "InnoCentre, 72 Tat Chee Avenue",
       },
     ],

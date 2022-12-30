@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QuotationBaseDto invalid response for deliveryBy earlier than scheduledAt 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
@@ -14,10 +14,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for deliveryBy not a allowed value xxx 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
       "isDateString": "deliveryBy must be a valid ISO 8601 date string",
     },
@@ -28,10 +28,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for expireAt not a allowed value xxx 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isDateString": "expireAt must be a valid ISO 8601 date string",
     },
     "property": "expireAt",
@@ -41,14 +41,14 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for invalid nested object inside array stops 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [
+    "children": [
       ValidationError {
-        "children": Array [
+        "children": [
           ValidationError {
-            "children": Array [],
-            "constraints": Object {
+            "children": [],
+            "constraints": {
               "isString": "address must be a string",
             },
             "property": "address",
@@ -62,11 +62,11 @@ Array [
         },
       },
     ],
-    "constraints": Object {
+    "constraints": {
       "arrayMinSize": "stops must contain at least 2 elements",
     },
     "property": "stops",
-    "value": Array [
+    "value": [
       QuotationStopDto {
         "address": undefined,
         "coordinates": undefined,
@@ -77,11 +77,11 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for item as an invalid nested object 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [
+    "children": [
       ValidationError {
-        "constraints": Object {
+        "constraints": {
           "nestedValidation": "nested property item must be either object or array",
         },
         "property": "item",
@@ -96,10 +96,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing deliveryBy 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
       "isDateString": "deliveryBy must be a valid ISO 8601 date string",
     },
@@ -110,10 +110,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing expireAt 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isDateString": "expireAt must be a valid ISO 8601 date string",
     },
     "property": "expireAt",
@@ -123,10 +123,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing item 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isDefined": "item should not be null or undefined",
     },
     "property": "item",
@@ -136,10 +136,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing location 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "location must be a string",
     },
     "property": "location",
@@ -149,10 +149,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing quotationId 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isString": "quotationId must be a string",
       "matches": "quotationId must match /^[0-9]{12}$/ regular expression",
     },
@@ -163,10 +163,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing scheduleAt 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "scheduleAt must be later than now",
       "isDateString": "scheduleAt must be a valid ISO 8601 date string",
     },
@@ -174,8 +174,8 @@ Array [
     "value": undefined,
   },
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
@@ -185,10 +185,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for missing stops 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "arrayMaxSize": "stops must contain not more than 2 elements",
       "arrayMinSize": "stops must contain at least 2 elements",
       "isArray": "stops must be an array",
@@ -201,10 +201,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for quotationId not a allowed value xxx 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "matches": "quotationId must match /^[0-9]{12}$/ regular expression",
     },
     "property": "quotationId",
@@ -214,10 +214,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for scheduleAt not a allowed value xxx 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "scheduleAt must be later than now",
       "isDateString": "scheduleAt must be a valid ISO 8601 date string",
     },
@@ -225,8 +225,8 @@ Array [
     "value": "xxx",
   },
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "IsLaterThan": "deliveryBy must be later than scheduleAt, now",
     },
     "property": "deliveryBy",
@@ -236,14 +236,14 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for stops has less than 2 of items in array 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "arrayMinSize": "stops must contain at least 2 elements",
     },
     "property": "stops",
-    "value": Array [
+    "value": [
       QuotationStopDto {
         "address": "999 Prince Edward Road",
         "coordinates": QuotationStopCoordinatesDto {
@@ -257,14 +257,14 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for stops has more than 2 of items in array 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "arrayMaxSize": "stops must contain not more than 2 elements",
     },
     "property": "stops",
-    "value": Array [
+    "value": [
       QuotationStopDto {
         "address": "999 Prince Edward Road",
         "coordinates": QuotationStopCoordinatesDto {
@@ -292,10 +292,10 @@ Array [
 `;
 
 exports[`QuotationBaseDto invalid response for stops not an array 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "arrayMaxSize": "stops must contain not more than 2 elements",
       "arrayMinSize": "stops must contain at least 2 elements",
       "isArray": "stops must be an array",
@@ -313,10 +313,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for categories not an array 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isArray": "categories must be an array",
     },
     "property": "categories",
@@ -326,10 +326,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for handlingInstructions not an array 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isArray": "handlingInstructions must be an array",
     },
     "property": "handlingInstructions",
@@ -339,10 +339,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for missing quantity 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isNumber": "quantity must be a number conforming to the specified constraints",
     },
     "property": "quantity",
@@ -352,10 +352,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for missing weight 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isNumber": "weight must be a number conforming to the specified constraints",
     },
     "property": "weight",
@@ -365,10 +365,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for quantity not an number 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isNumber": "quantity must be a number conforming to the specified constraints",
     },
     "property": "quantity",
@@ -378,10 +378,10 @@ Array [
 `;
 
 exports[`QuotationBaseItemDto invalid response for weight not an number 1`] = `
-Array [
+[
   ValidationError {
-    "children": Array [],
-    "constraints": Object {
+    "children": [],
+    "constraints": {
       "isNumber": "weight must be a number conforming to the specified constraints",
     },
     "property": "weight",
