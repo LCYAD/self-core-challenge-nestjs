@@ -1,5 +1,6 @@
 // Can setup setting for different environments
 export default () => ({
+  reqIdPrefix: 'quotation',
   redis: {
     host: 'localhost',
     port: 6379
