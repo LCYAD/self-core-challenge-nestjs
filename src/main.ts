@@ -8,8 +8,10 @@ import {
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 import { Logger } from 'nestjs-pino'
+import uniqid from 'uniqid'
 
 import { AppModule } from './app.module'
+import config from './config'
 import { HttpExceptionFilter } from './filters/httpException.filter'
 import { getValidationExceptionFactory } from './utils/validation.util'
 
@@ -24,7 +26,8 @@ const bootstrap = async () => {
             singleLine: true
           }
         }
-      }
+      },
+      genReqId: () => uniqid(`${config().reqIdPrefix}-`)
     }),
     { bufferLogs: true }
   )
