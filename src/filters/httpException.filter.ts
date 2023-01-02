@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common'
 
 import type { FastifyReply } from 'fastify'
+import { Logger } from 'nestjs-pino'
 
 import { APIRouteNotFoundException } from '@exceptions/apiRouteNotFound.exception'
 import { UnauthorizedAccessException } from '@exceptions/unauthorizedAccess.exception'
@@ -23,6 +24,8 @@ type ExceptionResponse = {
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
+  constructor(private readonly logger: Logger) {}
+
   catch(exception: HttpException | any, host: ArgumentsHost) {
     const ctx = host.switchToHttp()
     const response = ctx.getResponse<FastifyReply>()
@@ -44,11 +47,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const exceptionResponse = exception.getResponse() as ExceptionResponse
     const { location, ...errContent }: ExceptionResponse = exceptionResponse
 
-    // TODO: replace with proper logger
-    console.error({
-      status,
+    this.logger.error(errContent.type, {
       location,
-      type: errContent.type,
       detail: errContent.detail,
       stackTrace: status === 500 ? exception.stack : null
     })

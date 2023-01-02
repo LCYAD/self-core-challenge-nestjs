@@ -2,6 +2,8 @@ import { DynamicModule, Module, ValidationPipe } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_FILTER, APP_PIPE } from '@nestjs/core'
 
+import { Logger, PinoLogger } from 'nestjs-pino'
+
 import secret from '@config/secret'
 import { HttpExceptionFilter } from '@filters/httpException.filter'
 import { getValidationExceptionFactory } from '@utils/validation.util'
@@ -37,7 +39,11 @@ export class GenericE2ETestModule {
             })
           })
         },
-        { provide: APP_FILTER, useClass: HttpExceptionFilter }
+        {
+          provide: APP_FILTER,
+          useFactory: () =>
+            new HttpExceptionFilter(new Logger(new PinoLogger({}), {}))
+        }
       ],
       exports: []
     }
