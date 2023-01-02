@@ -7,6 +7,8 @@ import {
 } from '@nestjs/platform-fastify'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
+import { Logger } from 'nestjs-pino'
+
 import { AppModule } from './app.module'
 import { HttpExceptionFilter } from './filters/httpException.filter'
 import { getValidationExceptionFactory } from './utils/validation.util'
@@ -14,9 +16,21 @@ import { getValidationExceptionFactory } from './utils/validation.util'
 const bootstrap = async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter()
+    new FastifyAdapter({
+      logger: {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            singleLine: true
+          }
+        }
+      }
+    }),
+    { bufferLogs: true }
   )
-  app.useGlobalFilters(new HttpExceptionFilter())
+  const pinoLogger = app.get(Logger)
+  app.useLogger(pinoLogger)
+  app.useGlobalFilters(new HttpExceptionFilter(pinoLogger))
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
